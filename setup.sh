@@ -1,12 +1,12 @@
 #!/bin/sh
-PATH=$1
+OUTPUT=$1
 TEXT="server { \n
         listen 8080;\n
         listen [::]:8080;\n
         \n
         server_name whatever.diego.com;\n
         \n
-        root $PATH;\n
+        root $OUTPUT;\n
         index index.html;\n
 \n
         location / {\n
@@ -17,6 +17,6 @@ TEXT="server { \n
 }"
 echo $TEXT > website
 
-#sudo apt-get install nginx
-#mv website /etc/nginx/sites-enabled
+sudo apt-get install nginx
+sudo mv website /etc/nginx/sites-enabled
 systemctl reload nginx
