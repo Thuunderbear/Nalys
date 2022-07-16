@@ -1,0 +1,14 @@
+server { 
+ listen 8080;
+ listen [::]:8080;
+ 
+ server_name whatever.diego.com;
+ 
+ root web;
+ index index.html;
+ 
+ location / {
+ try_files $uri $uri/ =404;
+ }
+ 
+ }
